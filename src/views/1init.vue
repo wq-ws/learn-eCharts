@@ -1,0 +1,10 @@
+<template>
+    <div>
+        1111
+    </div>
+</template>
+
+<style lang="scss"></style>
+
+<script setup name="Init" lang="ts">
+</script>
