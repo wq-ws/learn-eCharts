@@ -11,6 +11,11 @@ const routes: RouteRecordRaw[] = [
         path: '/init',
         name: "Init",
         component: () => import('@/views/1init.vue'),
+    },
+    {
+        path: '/dataZoom',
+        name: "DataZoom",
+        component: () => import('@/views/2dataZoom.vue'),
     }
 ]
 
