@@ -100,7 +100,9 @@ const getviewbystation = (myChart: EChartsType) => {
             { name: state[0], type: 'bar', data: [] },
             { name: state[1], type: 'bar', data: [] },
             {
-                type: 'custom', renderItem: function (params: { coordSys: { x: any; y: any; width: any; height: any; }; }, api: { value: (arg0: number) => any; coord: (arg0: any[]) => any; style: () => any; }) {//开发者自定义的图形元素渲染逻辑，是通过书写 renderItem 函数实现的
+                type: 'custom', renderItem: function (params: { coordSys: { x: any; y: any; width: any; height: any; }; }, api: {
+                    [x: string]: any; value: (arg0: number) => any; coord: (arg0: any[]) => any; style: () => any;
+                }) {//开发者自定义的图形元素渲染逻辑，是通过书写 renderItem 函数实现的
                     var categoryIndex = api.value(0);//这里使用 api.value(0) 取出当前 dataItem 中第一个维度的数值。
                     var start = api.coord([api.value(1), categoryIndex]); // 这里使用 api.coord(...) 将数值在当前坐标系中转换成为屏幕上的点的像素值。
                     var end = api.coord([api.value(2), categoryIndex]);
@@ -119,7 +121,9 @@ const getviewbystation = (myChart: EChartsType) => {
                             width: params.coordSys.width,
                             height: params.coordSys.height
                         }),
-                        style: api.style()
+                        style: {
+                            fill: api.visual('color')
+                        }
                     };
                 },
                 encode: {
